@@ -13,5 +13,9 @@ namespace SkydivingCRM.UserService.Business.Services.IServices
         Task AddSportsmanToGroup(SkydivingGroupSportsmanModel model);
 
         Task AddInstructorToGroup(SkydivingGroupInstructorModel model);
+
+        Task RemoveSportsmanFromGroup(SkydivingGroupSportsmanModel model);
+
+        Task RemoveInstructorFromGroup(SkydivingGroupInstructorModel model);
     }
 }

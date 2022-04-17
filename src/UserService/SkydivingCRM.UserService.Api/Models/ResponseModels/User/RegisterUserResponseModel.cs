@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SkydivingCRM.UserService.Api.Models.ResponseModels
+namespace SkydivingCRM.UserService.Api.Models.ResponseModels.User
 {
     public class RegisterUserResponseModel
     {

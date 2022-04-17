@@ -26,6 +26,10 @@ namespace SkydivingCRM.UserService.Api
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<UserEntity, RoleEntity>()
                 .AddEntityFrameworkStores<UserServiceContext>();
+            services.AddIdentityCore<UserEntity>(options =>
+            {
+                options.Password.RequiredLength = 4;
+            });
 
             services.AddMappingProfiles();
 

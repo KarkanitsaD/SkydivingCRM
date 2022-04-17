@@ -6,6 +6,8 @@ namespace SkydivingCRM.UserService.Api.Models.RequestModels.User
     {
         public Guid SkydivingClubId { get; set; }
 
+        public string Login { get; set; }
+
         public string Name { get; set; }
 
         public string Surname { get; set; }

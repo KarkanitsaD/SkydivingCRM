@@ -10,43 +10,43 @@ namespace SkydivingCRM.UserService.Data.Repositories
     {
         private readonly UserServiceContext _context;
 
-        private readonly DbSet<TEntity> _dbSet;
+        protected readonly DbSet<TEntity> DbSet;
 
         public Repository(UserServiceContext context)
         {
             _context = context;
-            _dbSet = _context.Set<TEntity>();
+            DbSet = _context.Set<TEntity>();
         }
 
         public async Task<TEntity> GetAsync(Guid id)
         {
-            return await _dbSet.FindAsync(id);
+            return await DbSet.FindAsync(id);
         }
 
         public async Task<TEntity> CreateAsync(TEntity entity)
         {
-            var createdEntity = await _dbSet.AddAsync(entity);
+            var createdEntity = await DbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
             return createdEntity.Entity;
         }
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            var updatedEntity = _dbSet.Update(entity);
+            var updatedEntity = DbSet.Update(entity);
             await _context.SaveChangesAsync();
             return updatedEntity.Entity;
         }
 
         public async Task<TEntity> RemoveAsync(TEntity entity)
         {
-            var removedEntity = _dbSet.Remove(entity);
+            var removedEntity = DbSet.Remove(entity);
             await _context.SaveChangesAsync();
             return removedEntity.Entity;
         }
 
         public async Task<List<TEntity>> GetListAsync()
         {
-            return await _dbSet.ToListAsync();
+            return await DbSet.ToListAsync();
         }
     }
 }
