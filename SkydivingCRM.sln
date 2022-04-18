@@ -15,7 +15,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.UserService.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.UserService.Business", "src\UserService\SkydivingCRM.UserService.Business\SkydivingCRM.UserService.Business.csproj", "{FF0266E9-36EB-4911-9207-5F96F480AA5A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkydivingClubService", "SkydivingClubService", "{F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.SkydivingClubService.Api", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Api\SkydivingCRM.SkydivingClubService.Api.csproj", "{3192A2DF-657D-4E35-90C0-D3F9721384B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.SkydivingClubService.Business", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Business\SkydivingCRM.SkydivingClubService.Business.csproj", "{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.SkydivingClubService.Data", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Data\SkydivingCRM.SkydivingClubService.Data.csproj", "{96BE68FB-434F-413B-91B3-FECB2E9379E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +41,18 @@ Global
 		{FF0266E9-36EB-4911-9207-5F96F480AA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF0266E9-36EB-4911-9207-5F96F480AA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF0266E9-36EB-4911-9207-5F96F480AA5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3192A2DF-657D-4E35-90C0-D3F9721384B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3192A2DF-657D-4E35-90C0-D3F9721384B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3192A2DF-657D-4E35-90C0-D3F9721384B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3192A2DF-657D-4E35-90C0-D3F9721384B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +63,9 @@ Global
 		{6D8C9D76-60E7-4E45-B265-24C3B32EA339} = {BEACB30A-494E-45BA-9637-63746BA48C68}
 		{FF0266E9-36EB-4911-9207-5F96F480AA5A} = {BEACB30A-494E-45BA-9637-63746BA48C68}
 		{F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7} = {813DC32E-817A-4EF1-BFB8-4756F86F5316}
+		{3192A2DF-657D-4E35-90C0-D3F9721384B1} = {F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}
+		{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD} = {F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}
+		{96BE68FB-434F-413B-91B3-FECB2E9379E5} = {F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {326DFF25-E7F5-4EDE-BEC6-92A9D2FBB36E}
