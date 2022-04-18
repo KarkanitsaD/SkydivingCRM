@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.UserService.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.UserService.Data", "src\UserService\SkydivingCRM.UserService.Data\SkydivingCRM.UserService.Data.csproj", "{6D8C9D76-60E7-4E45-B265-24C3B32EA339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.UserService.Business", "src\UserService\SkydivingCRM.UserService.Business\SkydivingCRM.UserService.Business.csproj", "{FF0266E9-36EB-4911-9207-5F96F480AA5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.UserService.Business", "src\UserService\SkydivingCRM.UserService.Business\SkydivingCRM.UserService.Business.csproj", "{FF0266E9-36EB-4911-9207-5F96F480AA5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,7 @@ Global
 		{54240C63-194F-4CE6-8762-69C324C0F5E5} = {BEACB30A-494E-45BA-9637-63746BA48C68}
 		{6D8C9D76-60E7-4E45-B265-24C3B32EA339} = {BEACB30A-494E-45BA-9637-63746BA48C68}
 		{FF0266E9-36EB-4911-9207-5F96F480AA5A} = {BEACB30A-494E-45BA-9637-63746BA48C68}
+		{F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7} = {813DC32E-817A-4EF1-BFB8-4756F86F5316}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {326DFF25-E7F5-4EDE-BEC6-92A9D2FBB36E}

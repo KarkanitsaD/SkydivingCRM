@@ -10,6 +10,7 @@ namespace SkydivingCRM.UserService.Api.Extensions
         {
             services.AddScoped<IUserService, Business.Services.UserService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITokenService, TokenService>();
         }
     }
 }

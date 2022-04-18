@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using SkydivingCRM.UserService.Api.Extensions;
+using SkydivingCRM.UserService.Business.Options;
 using SkydivingCRM.UserService.Data;
 using SkydivingCRM.UserService.Data.Entities;
 
@@ -31,7 +32,13 @@ namespace SkydivingCRM.UserService.Api
                 options.Password.RequiredLength = 4;
             });
 
+            services.AddJwtOptions(Configuration);
+
             services.AddMappingProfiles();
+
+            services.AddJwtBearerAuthentication(Configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>());
+            services.AddAuthorizationHandlers();
+            services.AddAuthorizationService();
 
             services.AddRepositories();
             services.AddServices();
@@ -56,6 +63,7 @@ namespace SkydivingCRM.UserService.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

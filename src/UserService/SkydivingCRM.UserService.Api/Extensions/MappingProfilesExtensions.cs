@@ -11,6 +11,8 @@ namespace SkydivingCRM.UserService.Api.Extensions
             services.AddSingleton(new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new UserMapperProfile());
+                cfg.AddProfile(new AuthMapperProfile());
+                cfg.AddProfile(new RoleMapperProfile());
             }).CreateMapper());
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -18,17 +19,19 @@ namespace SkydivingCRM.UserService.Business.Services
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher<UserEntity> _passwordHasher;
         private readonly IMapper _mapper;
+        private readonly ITokenService _tokenService;
 
         public AuthService(
             UserManager<UserEntity> userManager, 
             IMapper mapper, 
             IUserRepository userRepository, 
-            IPasswordHasher<UserEntity> passwordHasher)
+            IPasswordHasher<UserEntity> passwordHasher, ITokenService tokenService)
         {
             _userManager = userManager;
             _mapper = mapper;
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
+            _tokenService = tokenService;
         }
 
         public async Task RegisterDirector(UserModel director, string password)
@@ -52,10 +55,14 @@ namespace SkydivingCRM.UserService.Business.Services
                 _passwordHasher.VerifyHashedPassword(userEntity, userEntity.PasswordHash, loginModel.Password);
             if (passwordVerificationResult == PasswordVerificationResult.Failed)
             {
-                throw new Exception($"Invalid password!");
+                throw new Exception("Invalid password!");
             }
 
-            return "OK";
+            var userRoles = await _userManager.GetRolesAsync(userEntity);
+            var userModel = _mapper.Map<UserEntity, UserModel>(userEntity);
+            userModel.Roles = userRoles.ToList();
+
+            return _tokenService.GenerateJwtAsync(userModel);
         }
 
         private async Task VerifyOnLoginRepeatAsync(UserModel userModel)

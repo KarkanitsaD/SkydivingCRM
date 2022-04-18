@@ -1,6 +1,6 @@
 ﻿namespace SkydivingCRM.UserService.Api.Models.ResponseModels.Auth
 {
-    public class LoginSuccessModel
+    public class LoginSuccessResponseModel
     {
         public string Jwt { get; set; }
     }

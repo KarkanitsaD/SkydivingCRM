@@ -2,6 +2,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkydivingCRM.UserService.Api.Models.RequestModels.User;
+using SkydivingCRM.UserService.Business.Models.Auth;
 using SkydivingCRM.UserService.Business.Models.User;
 using SkydivingCRM.UserService.Business.Services.IServices;
 
@@ -24,11 +25,19 @@ namespace SkydivingCRM.UserService.Api.Controllers
 
         [HttpPost]
         [Route("register")]
-        public async Task<IActionResult> Register(RegisterUserRequestModel model)
+        public async Task<IActionResult> Register([FromBody] RegisterUserRequestModel model)
         {
             var userModel = _mapper.Map<RegisterUserRequestModel, UserModel>(model);
              await _authService.RegisterDirector(userModel, model.Password);
              return Ok();
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserRequestModel model)
+        {
+            var loginModel = _mapper.Map<LoginModel>(model);
+            return Ok(await _authService.Login(loginModel));
         }
     }
 }
