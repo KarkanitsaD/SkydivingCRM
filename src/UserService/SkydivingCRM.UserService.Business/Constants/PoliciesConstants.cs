@@ -4,8 +4,8 @@
     {
         public const string Director = "DirectorPolicy";
 
-        public const string Instructor = "Instructor";
+        public const string Instructor = "InstructorPolicy";
 
-        public const string Sportsman = "Sportsman";
+        public const string Sportsman = "SportsmanPolicy";
     }
 }

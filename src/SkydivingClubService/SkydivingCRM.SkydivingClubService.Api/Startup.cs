@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SkydivingCRM.SkydivingClubService.Data;
 
 namespace SkydivingCRM.SkydivingClubService.Api
 {
@@ -18,6 +20,17 @@ namespace SkydivingCRM.SkydivingClubService.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SkydivingClubContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:5001";
+                });
+                
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -39,6 +52,7 @@ namespace SkydivingCRM.SkydivingClubService.Api
 
             app.UseRouting();
 
+            app.UseAuthorization();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
