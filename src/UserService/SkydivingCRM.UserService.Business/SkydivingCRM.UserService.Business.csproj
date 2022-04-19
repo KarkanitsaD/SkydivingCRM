@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,10 +6,17 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SkydivingCRM.UserService.Data\SkydivingCRM.UserService.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="RabbitMq\Events\Send\" />
+    <Folder Include="RabbitMq\Senders\" />
   </ItemGroup>
 
 </Project>

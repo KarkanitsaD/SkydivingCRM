@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using SkydivingCRM.UserService.Data.Entities;
 
 namespace SkydivingCRM.UserService.Data.Repositories.IRepositories

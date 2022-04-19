@@ -20,7 +20,6 @@ namespace SkydivingCRM.UserService.Api.Controllers
             _mapper = mapper;
         }
 
-
         [HttpPost]
         [Route("addSportsmanToGroup")]
         public async Task<IActionResult> AddSportsmanToGroup([FromBody] AddSportsmanToGroupRequestModel model)

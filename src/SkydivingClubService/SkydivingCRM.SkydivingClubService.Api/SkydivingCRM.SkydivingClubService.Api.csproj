@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.16">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +19,11 @@
   <ItemGroup>
     <ProjectReference Include="..\SkydivingCRM.SkydivingClubService.Business\SkydivingCRM.SkydivingClubService.Business.csproj" />
     <ProjectReference Include="..\SkydivingCRM.SkydivingClubService.Data\SkydivingCRM.SkydivingClubService.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\RequestModels\SkydivingClub\" />
+    <Folder Include="Models\ResponseModels\" />
   </ItemGroup>
 
 </Project>

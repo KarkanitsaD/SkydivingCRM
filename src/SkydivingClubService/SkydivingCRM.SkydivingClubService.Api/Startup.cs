@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SkydivingCRM.SkydivingClubService.Api.Extensions;
 using SkydivingCRM.SkydivingClubService.Data;
 
 namespace SkydivingCRM.SkydivingClubService.Api
@@ -25,14 +26,13 @@ namespace SkydivingCRM.SkydivingClubService.Api
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication("Bearer", options =>
-                {
-                    options.Authority = "https://localhost:5001";
-                });
-                
+            services.AddMappingProfiles();    
 
+            services.AddRepositories();
+            services.AddSenders();
+            services.AddServices();
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SkydivingCRM.SkydivingClubService.Api", Version = "v1" });

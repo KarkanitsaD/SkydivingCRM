@@ -10,7 +10,7 @@ using SkydivingCRM.SkydivingClubService.Data;
 namespace SkydivingCRM.SkydivingClubService.Data.Migrations
 {
     [DbContext(typeof(SkydivingClubContext))]
-    [Migration("20220418125408_InitialMigration")]
+    [Migration("20220419114336_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,8 +47,9 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("Title")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

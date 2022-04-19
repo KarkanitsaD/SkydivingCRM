@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using SkydivingCRM.UserService.Api.Extensions;
 using SkydivingCRM.UserService.Business.Options;
+using SkydivingCRM.UserService.Business.RabbitMq.Receivers;
 using SkydivingCRM.UserService.Data;
 using SkydivingCRM.UserService.Data.Entities;
 
@@ -43,6 +44,8 @@ namespace SkydivingCRM.UserService.Api
             services.AddRepositories();
             services.AddServices();
             services.AddControllers();
+
+            services.AddHostedService<SkydivingClubCreatedReceiver>();
 
             services.AddSwaggerGen(c =>
             {
