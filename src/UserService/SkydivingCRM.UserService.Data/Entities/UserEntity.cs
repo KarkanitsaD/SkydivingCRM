@@ -18,9 +18,9 @@ namespace SkydivingCRM.UserService.Data.Entities
 
         public string Phone { get; set; }
 
-        public DateTimeOffset StartDate { get; set; }
+        public DateTimeOffset? StartDate { get; set; }
 
-        public DateTimeOffset DateOfRegistration { get; set; }
+        public DateTimeOffset? DateOfRegistration { get; set; }
 
         public List<SkydivingGroupSportsmanEntity> SkydivingGroupsAsSportsman { get; set; }
 

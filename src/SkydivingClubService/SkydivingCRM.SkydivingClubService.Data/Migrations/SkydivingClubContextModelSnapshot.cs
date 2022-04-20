@@ -70,12 +70,12 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("FoundationDate")
+                    b.Property<DateTimeOffset?>("FoundationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTimeOffset>("RegistrationDate")
+                    b.Property<DateTimeOffset?>("RegistrationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
@@ -97,12 +97,12 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset>("FoundationDate")
+                    b.Property<DateTimeOffset?>("FoundationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTimeOffset>("RegistrationDate")
+                    b.Property<DateTimeOffset?>("RegistrationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");

@@ -10,22 +10,20 @@ namespace SkydivingCRM.SkydivingClubService.Api.Models.RequestModels.SkydivingCl
 
         public string Address { get; set; }
 
-        public DateTimeOffset FoundationDate { get; set; }
-
-        public DateTimeOffset RegistrationDate { get; set; }
+        public DateTimeOffset? FoundationDate { get; set; }
 
         public Guid CityId { get; set; }
 
-        public string DirectorLogin { get; set; }
+        public string ClubAdministratorLogin { get; set; }
 
-        public string DirectorName { get; set; }
+        public string ClubAdministratorName { get; set; }
 
-        public string DirectorSurname { get; set; }
+        public string ClubAdministratorSurname { get; set; }
 
-        public string DirectorPatronymic { get; set; }
+        public string ClubAdministratorPatronymic { get; set; }
 
-        public string DirectorEmail { get; set; }
+        public string ClubAdministratorEmail { get; set; }
 
-        public string DirectorPassword { get; set; }
+        public string ClubAdministratorPassword { get; set; }
     }
 }

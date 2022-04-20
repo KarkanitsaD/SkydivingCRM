@@ -19,10 +19,10 @@ namespace SkydivingCRM.UserService.Api.Controllers
         }
 
         [HttpPost]
-        [Route("Director")]
+        [Route("ClubAdministrator")]
         public async Task<IActionResult> CreateDirectorRole()
         {
-            await _roleManager.CreateAsync(new RoleEntity() { Name = RolesConstants.DirectorRole });
+            await _roleManager.CreateAsync(new RoleEntity() { Name = RolesConstants.ClubAdministratorRole });
             return Ok();
         }
 

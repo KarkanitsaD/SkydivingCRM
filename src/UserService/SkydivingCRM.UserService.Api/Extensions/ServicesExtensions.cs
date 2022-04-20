@@ -8,6 +8,7 @@ namespace SkydivingCRM.UserService.Api.Extensions
     {
         public static void AddServices(this IServiceCollection services)
         {
+            services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IUserService, Business.Services.UserService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();

@@ -49,10 +49,10 @@ namespace SkydivingCRM.UserService.Api.Extensions
         {
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(PoliciesConstants.Director, 
+                options.AddPolicy(PoliciesConstants.ClubAdministrator, 
                     policy => policy.Requirements.Add(new RolesAuthorizationRequirement(new List<string>
                     {
-                        RolesConstants.DirectorRole,
+                        RolesConstants.ClubAdministratorRole,
                     })));
 
                 options.AddPolicy(PoliciesConstants.Instructor,

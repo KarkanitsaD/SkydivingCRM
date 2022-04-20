@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +11,8 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SkydivingCRM.UserService.Business.RabbitMq.Events.Receive;
 using SkydivingCRM.UserService.Business.Services.IServices;
+using SkydivingCRM.UserService.Data.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SkydivingCRM.UserService.Business.RabbitMq.Receivers
 {
@@ -52,10 +54,10 @@ namespace SkydivingCRM.UserService.Business.RabbitMq.Receivers
 
         private async void Consumer_Received(object sender, BasicDeliverEventArgs e)
         {
-            var authService = _serviceScopeFactory.CreateScope()
-                .ServiceProvider.GetRequiredService<IAuthService>();
-            var mapper = _serviceScopeFactory.CreateScope()
-                .ServiceProvider.GetRequiredService<IMapper>();
+            var scope = _serviceScopeFactory.CreateScope();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserEntity>>();
+            var authService = scope.ServiceProvider.GetRequiredService<IAuthService>();
+            var emailService = scope.ServiceProvider.GetRequiredService<IEmailService>();
 
             var skydivingClubCreatedEventString = Encoding.UTF8.GetString(e.Body.ToArray());
             Console.WriteLine(skydivingClubCreatedEventString);
@@ -66,7 +68,13 @@ namespace SkydivingCRM.UserService.Business.RabbitMq.Receivers
                 throw new Exception();
             }
 
-            await authService.RegisterDirector(skydivingClubCreatedEvent.User, skydivingClubCreatedEvent.Password);
+            await authService.RegisterClubAdministrator(skydivingClubCreatedEvent.User, skydivingClubCreatedEvent.Password);
+
+            var user = await userManager.FindByEmailAsync(skydivingClubCreatedEvent.User.Email);
+            var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
+            var callbackUrl =
+                $"https://localhost:6001/api/skydivingClub/auth/confirmEmail?code={code}&userId={user.Id}";
+            await emailService.SendEmailAsync(user.Email, "Email confirmation", $"Confirm email <a href='{callbackUrl}'>Confirm</a>");
         }
     }
 }

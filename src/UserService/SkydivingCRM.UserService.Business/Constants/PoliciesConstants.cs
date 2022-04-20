@@ -2,7 +2,7 @@
 {
     public class PoliciesConstants
     {
-        public const string Director = "DirectorPolicy";
+        public const string ClubAdministrator = "ClubAdministratorPolicy";
 
         public const string Instructor = "InstructorPolicy";
 

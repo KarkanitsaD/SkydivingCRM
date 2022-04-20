@@ -10,8 +10,8 @@ using SkydivingCRM.UserService.Data;
 namespace SkydivingCRM.UserService.Data.Migrations
 {
     [DbContext(typeof(UserServiceContext))]
-    [Migration("20220417102142_UserWithLogin")]
-    partial class UserWithLogin
+    [Migration("20220420124633_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -199,7 +199,7 @@ namespace SkydivingCRM.UserService.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("DateOfRegistration")
+                    b.Property<DateTimeOffset?>("DateOfRegistration")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
@@ -255,7 +255,7 @@ namespace SkydivingCRM.UserService.Data.Migrations
                     b.Property<Guid>("SkydivingClubId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset>("StartDate")
+                    b.Property<DateTimeOffset?>("StartDate")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Surname")

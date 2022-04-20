@@ -6,6 +6,6 @@
 
         public const string InstructorRole = "Instructor";
 
-        public const string DirectorRole = "Director";
+        public const string ClubAdministratorRole = "ClubAdministrator";
     }
 }

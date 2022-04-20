@@ -11,9 +11,9 @@ namespace SkydivingCRM.SkydivingClubService.Data.Entities
 
         public string Address { get; set; }
 
-        public DateTimeOffset FoundationDate { get; set; }
+        public DateTimeOffset? FoundationDate { get; set; }
 
-        public DateTimeOffset RegistrationDate { get; set; }
+        public DateTimeOffset? RegistrationDate { get; set; }
 
         public Guid CityId { get; set; }
 

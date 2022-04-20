@@ -6,7 +6,7 @@ namespace SkydivingCRM.UserService.Business.Services.IServices
 {
     public interface IAuthService
     {
-        Task RegisterDirector(UserModel director, string password);
+        Task RegisterClubAdministrator(UserModel admin, string password);
 
         Task<string> Login(LoginModel loginModel);
     }

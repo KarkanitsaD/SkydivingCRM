@@ -10,7 +10,7 @@ using SkydivingCRM.SkydivingClubService.Data;
 namespace SkydivingCRM.SkydivingClubService.Data.Migrations
 {
     [DbContext(typeof(SkydivingClubContext))]
-    [Migration("20220419114336_InitialMigration")]
+    [Migration("20220420124702_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,12 +72,12 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("FoundationDate")
+                    b.Property<DateTimeOffset?>("FoundationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTimeOffset>("RegistrationDate")
+                    b.Property<DateTimeOffset?>("RegistrationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
@@ -99,12 +99,12 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset>("FoundationDate")
+                    b.Property<DateTimeOffset?>("FoundationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTimeOffset>("RegistrationDate")
+                    b.Property<DateTimeOffset?>("RegistrationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");

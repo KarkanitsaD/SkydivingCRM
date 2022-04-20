@@ -9,7 +9,7 @@ namespace SkydivingCRM.UserService.Api.Controllers
     public class TestController : ControllerBase
     {
         [HttpGet]
-        [Authorize(Policy = PoliciesConstants.Director)]
+        [Authorize(Policy = PoliciesConstants.ClubAdministrator)]
         public string Get()
         {
             return "OK";

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkydivingCRM.UserService.Api.Models.RequestModels.User;
@@ -28,7 +29,7 @@ namespace SkydivingCRM.UserService.Api.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterUserRequestModel model)
         {
             var userModel = _mapper.Map<RegisterUserRequestModel, UserModel>(model);
-             await _authService.RegisterDirector(userModel, model.Password);
+             await _authService.RegisterClubAdministrator(userModel, model.Password);
              return Ok();
         }
 
@@ -38,6 +39,14 @@ namespace SkydivingCRM.UserService.Api.Controllers
         {
             var loginModel = _mapper.Map<LoginModel>(model);
             return Ok(await _authService.Login(loginModel));
+        }
+
+        [HttpPost]
+        [Route("confirmEmail")]
+        public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string code)
+        {
+            Console.Write(userId + " " + code);
+            return Ok();
         }
     }
 }

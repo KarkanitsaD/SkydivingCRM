@@ -197,7 +197,7 @@ namespace SkydivingCRM.UserService.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset>("DateOfRegistration")
+                    b.Property<DateTimeOffset?>("DateOfRegistration")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetimeoffset")
                         .HasDefaultValueSql("GETUTCDATE()");
@@ -253,7 +253,7 @@ namespace SkydivingCRM.UserService.Data.Migrations
                     b.Property<Guid>("SkydivingClubId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset>("StartDate")
+                    b.Property<DateTimeOffset?>("StartDate")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Surname")

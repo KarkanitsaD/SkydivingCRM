@@ -15,11 +15,11 @@ namespace SkydivingCRM.SkydivingClubService.Api.MappingProfiles
             CreateMap<RegisterSkydivingClubRequestModel, SkydivingClubModel>();
 
             CreateMap<RegisterSkydivingClubRequestModel, UserModel>()
-                .ForMember(src => src.Email, act => act.MapFrom(dest => dest.DirectorEmail))
-                .ForMember(src => src.Login, act => act.MapFrom(dest => dest.DirectorLogin))
-                .ForMember(src => src.Name, act => act.MapFrom(dest => dest.DirectorName))
-                .ForMember(src => src.Surname, act => act.MapFrom(dest => dest.DirectorSurname))
-                .ForMember(src => src.Patronymic, act => act.MapFrom(dest => dest.DirectorPatronymic));
+                .ForMember(src => src.Email, act => act.MapFrom(dest => dest.ClubAdministratorEmail))
+                .ForMember(src => src.Login, act => act.MapFrom(dest => dest.ClubAdministratorLogin))
+                .ForMember(src => src.Name, act => act.MapFrom(dest => dest.ClubAdministratorName))
+                .ForMember(src => src.Surname, act => act.MapFrom(dest => dest.ClubAdministratorSurname))
+                .ForMember(src => src.Patronymic, act => act.MapFrom(dest => dest.ClubAdministratorPatronymic));
         }
     }
 }

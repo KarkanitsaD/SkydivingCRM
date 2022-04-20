@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity;
-using SkydivingCRM.UserService.Business.Models.Role;
 
 namespace SkydivingCRM.UserService.Business.Models.User
 {
@@ -23,9 +21,9 @@ namespace SkydivingCRM.UserService.Business.Models.User
 
         public string Phone { get; set; }
 
-        public DateTimeOffset StartDate { get; set; }
+        public DateTimeOffset? StartDate { get; set; }
 
-        public DateTimeOffset DateOfRegistration { get; set; }
+        public DateTimeOffset? DateOfRegistration { get; set; }
 
         public List<string> Roles { get; set; }
     }

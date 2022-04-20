@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AutoMapper;
-using SkydivingCRM.SkydivingClubService.Business.Models;
 using SkydivingCRM.SkydivingClubService.Business.Models.SkydivingClub;
 using SkydivingCRM.SkydivingClubService.Business.Models.User;
 using SkydivingCRM.SkydivingClubService.Business.RabbitMq.Events.Send;

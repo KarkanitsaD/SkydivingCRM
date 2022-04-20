@@ -27,7 +27,7 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
             var clubModel = _mapper.Map<RegisterSkydivingClubRequestModel, SkydivingClubModel>(registerClubRequest);
             var userModel = _mapper.Map<RegisterSkydivingClubRequestModel, UserModel>(registerClubRequest);
 
-            clubModel = await _skydivingClubService.RegisterSkydivingClub(clubModel, userModel, registerClubRequest.DirectorPassword);
+            clubModel = await _skydivingClubService.RegisterSkydivingClub(clubModel, userModel, registerClubRequest.ClubAdministratorPassword);
 
             return Ok(clubModel);
         }

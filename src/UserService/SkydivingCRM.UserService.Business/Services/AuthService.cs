@@ -34,14 +34,14 @@ namespace SkydivingCRM.UserService.Business.Services
             _tokenService = tokenService;
         }
 
-        public async Task RegisterDirector(UserModel director, string password)
+        public async Task RegisterClubAdministrator(UserModel admin, string password)
         {
-            await VerifyOnLoginRepeatAsync(director);
+            await VerifyOnLoginRepeatAsync(admin);
 
-            var userEntity = _mapper.Map<UserModel, UserEntity>(director);
+            var userEntity = _mapper.Map<UserModel, UserEntity>(admin);
             userEntity.PasswordHash = _passwordHasher.HashPassword(userEntity, password);
             await _userManager.CreateAsync(userEntity);
-            await _userManager.AddToRoleAsync(userEntity, RolesConstants.DirectorRole);
+            await _userManager.AddToRoleAsync(userEntity, RolesConstants.ClubAdministratorRole);
             await _userManager.AddToRoleAsync(userEntity, RolesConstants.InstructorRole);
             await _userManager.AddToRoleAsync(userEntity, RolesConstants.SportsmanRole);
         }

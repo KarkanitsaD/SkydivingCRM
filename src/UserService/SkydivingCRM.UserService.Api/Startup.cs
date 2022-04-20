@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,11 +28,8 @@ namespace SkydivingCRM.UserService.Api
             services.AddDbContext<UserServiceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<UserEntity, RoleEntity>()
-                .AddEntityFrameworkStores<UserServiceContext>();
-            services.AddIdentityCore<UserEntity>(options =>
-            {
-                options.Password.RequiredLength = 4;
-            });
+                .AddEntityFrameworkStores<UserServiceContext>()
+                .AddDefaultTokenProviders();
 
             services.AddJwtOptions(Configuration);
 
