@@ -31,6 +31,7 @@ namespace SkydivingCRM.UserService.Api
                 .AddEntityFrameworkStores<UserServiceContext>()
                 .AddDefaultTokenProviders();
 
+
             services.AddJwtOptions(Configuration);
 
             services.AddMappingProfiles();
@@ -38,6 +39,8 @@ namespace SkydivingCRM.UserService.Api
             services.AddJwtBearerAuthentication(Configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>());
             services.AddAuthorizationHandlers();
             services.AddAuthorizationService();
+
+            services.AddRabbitMqSenders();
 
             services.AddRepositories();
             services.AddServices();

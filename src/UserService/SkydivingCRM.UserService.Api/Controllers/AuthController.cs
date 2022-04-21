@@ -41,7 +41,7 @@ namespace SkydivingCRM.UserService.Api.Controllers
             return Ok(await _authService.Login(loginModel));
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("confirmEmail")]
         public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string code)
         {

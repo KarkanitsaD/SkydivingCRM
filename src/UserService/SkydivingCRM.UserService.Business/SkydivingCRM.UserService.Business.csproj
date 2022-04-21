@@ -16,9 +16,4 @@
     <ProjectReference Include="..\SkydivingCRM.UserService.Data\SkydivingCRM.UserService.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="RabbitMq\Events\Send\" />
-    <Folder Include="RabbitMq\Senders\" />
-  </ItemGroup>
-
 </Project>

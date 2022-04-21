@@ -17,11 +17,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.UserService.Bu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SkydivingClubService", "SkydivingClubService", "{F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.SkydivingClubService.Api", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Api\SkydivingCRM.SkydivingClubService.Api.csproj", "{3192A2DF-657D-4E35-90C0-D3F9721384B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.SkydivingClubService.Api", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Api\SkydivingCRM.SkydivingClubService.Api.csproj", "{3192A2DF-657D-4E35-90C0-D3F9721384B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.SkydivingClubService.Business", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Business\SkydivingCRM.SkydivingClubService.Business.csproj", "{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.SkydivingClubService.Business", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Business\SkydivingCRM.SkydivingClubService.Business.csproj", "{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.SkydivingClubService.Data", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Data\SkydivingCRM.SkydivingClubService.Data.csproj", "{96BE68FB-434F-413B-91B3-FECB2E9379E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.SkydivingClubService.Data", "src\SkydivingClubService\SkydivingCRM.SkydivingClubService.Data\SkydivingCRM.SkydivingClubService.Data.csproj", "{96BE68FB-434F-413B-91B3-FECB2E9379E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailService", "EmailService", "{57B376BD-E9F1-4CAC-BF91-65B93CC02507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.EmailService.Api", "src\EmailService\SkydivingCRM.EmailService.Api\SkydivingCRM.EmailService.Api.csproj", "{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.EmailService.Business", "src\EmailService\SkydivingCRM.EmailService.Business\SkydivingCRM.EmailService.Business.csproj", "{93DFD657-039F-470E-BB9F-77117BD57FA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96BE68FB-434F-413B-91B3-FECB2E9379E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93DFD657-039F-470E-BB9F-77117BD57FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93DFD657-039F-470E-BB9F-77117BD57FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93DFD657-039F-470E-BB9F-77117BD57FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93DFD657-039F-470E-BB9F-77117BD57FA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +80,9 @@ Global
 		{3192A2DF-657D-4E35-90C0-D3F9721384B1} = {F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}
 		{20C82FD0-CDE8-4357-AD67-C5FC34C9CAFD} = {F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}
 		{96BE68FB-434F-413B-91B3-FECB2E9379E5} = {F96AD3C2-D1ED-474D-A9A8-AA4D96FD4CE7}
+		{57B376BD-E9F1-4CAC-BF91-65B93CC02507} = {813DC32E-817A-4EF1-BFB8-4756F86F5316}
+		{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01} = {57B376BD-E9F1-4CAC-BF91-65B93CC02507}
+		{93DFD657-039F-470E-BB9F-77117BD57FA5} = {57B376BD-E9F1-4CAC-BF91-65B93CC02507}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {326DFF25-E7F5-4EDE-BEC6-92A9D2FBB36E}
