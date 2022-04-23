@@ -43,9 +43,9 @@ namespace SkydivingCRM.UserService.Api.Controllers
 
         [HttpGet]
         [Route("confirmEmail")]
-        public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string code)
+        public async Task<IActionResult> ConfirmEmail([FromQuery] Guid userId, [FromQuery] string code)
         {
-            Console.Write(userId + " " + code);
+            await _authService.ConfirmEmailAsync(userId, code);
             return Ok();
         }
     }

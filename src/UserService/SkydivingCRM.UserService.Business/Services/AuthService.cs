@@ -65,6 +65,16 @@ namespace SkydivingCRM.UserService.Business.Services
             return _tokenService.GenerateJwtAsync(userModel);
         }
 
+        public async Task ConfirmEmailAsync(Guid userId, string code)
+        {
+            var userEntity = await _userRepository.GetAsync(userId);
+            var result = await _userManager.ConfirmEmailAsync(userEntity, code);
+            if (!result.Succeeded)
+            {
+                throw new Exception("Email not confirmed!");
+            }
+        }
+
         private async Task VerifyOnLoginRepeatAsync(UserModel userModel)
         {
             var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Login == userModel.Login);
