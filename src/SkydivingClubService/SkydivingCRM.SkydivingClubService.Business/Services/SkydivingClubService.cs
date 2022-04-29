@@ -24,9 +24,10 @@ namespace SkydivingCRM.SkydivingClubService.Business.Services
             _skydivingClubCreatedSender = skydivingClubCreatedSender;
         }
 
-        public Task<SkydivingClubModel> GetSkydivingClub(Guid clubId)
+        public async Task<SkydivingClubModel> GetSkydivingClub(Guid clubId)
         {
-            throw new NotImplementedException();
+            var club = await _skydivingClubRepository.GetAsync(clubId);
+            return _mapper.Map<SkydivingClubEntity, SkydivingClubModel>(club);
         }
 
         public async Task<SkydivingClubModel> RegisterSkydivingClub(SkydivingClubModel skydivingClubModel, UserModel director, string directorPassword)
@@ -40,9 +41,17 @@ namespace SkydivingCRM.SkydivingClubService.Business.Services
             return _mapper.Map<SkydivingClubEntity, SkydivingClubModel>(clubEntity);
         }
 
-        public Task<SkydivingClubModel> UpdateSkydivingClub(SkydivingClubModel skydivingClubModel)
+        public async Task<SkydivingClubModel> UpdateSkydivingClub(SkydivingClubModel skydivingClubModel)
         {
-            throw new NotImplementedException();
+            var skydivingClubEntity = await _skydivingClubRepository.GetAsync(skydivingClubModel.Id);
+
+            skydivingClubEntity.Address = skydivingClubModel.Address;
+            skydivingClubEntity.Description = skydivingClubModel.Description;
+            skydivingClubEntity.FoundationDate = skydivingClubModel.FoundationDate;
+            skydivingClubEntity.Title = skydivingClubModel.Title;
+
+            skydivingClubEntity = await _skydivingClubRepository.UpdateAsync(skydivingClubEntity);
+            return _mapper.Map<SkydivingClubEntity, SkydivingClubModel>(skydivingClubEntity);
         }
     }
 }

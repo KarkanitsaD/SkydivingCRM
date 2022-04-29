@@ -14,6 +14,8 @@ namespace SkydivingCRM.SkydivingClubService.Api.MappingProfiles
 
             CreateMap<RegisterSkydivingClubRequestModel, SkydivingClubModel>();
 
+            CreateMap<UpdateSkydivingClubRequestModel, SkydivingClubModel>();
+
             CreateMap<RegisterSkydivingClubRequestModel, UserModel>()
                 .ForMember(src => src.Email, act => act.MapFrom(dest => dest.ClubAdministratorEmail))
                 .ForMember(src => src.Login, act => act.MapFrom(dest => dest.ClubAdministratorLogin))

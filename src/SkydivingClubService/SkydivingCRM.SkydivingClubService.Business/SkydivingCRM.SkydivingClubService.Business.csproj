@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <Folder Include="Constants\" />
+    <Folder Include="Models\Equipment\" />
+    <Folder Include="Models\Stock\" />
     <Folder Include="RabbitMq\Events\Receive\" />
     <Folder Include="Models\User\" />
     <Folder Include="RabbitMq\Senders\" />

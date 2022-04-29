@@ -21,9 +21,4 @@
     <ProjectReference Include="..\SkydivingCRM.SkydivingClubService.Data\SkydivingCRM.SkydivingClubService.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\RequestModels\SkydivingClub\" />
-    <Folder Include="Models\ResponseModels\" />
-  </ItemGroup>
-
 </Project>

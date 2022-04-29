@@ -14,6 +14,8 @@ namespace SkydivingCRM.SkydivingClubService.Api.Extensions
                 cfg.AddProfile(new CityMappingProfile());
                 cfg.AddProfile(new SkydivingClubMappingProfile());
                 cfg.AddProfile(new SkydivingGroupMappingProfile());
+                cfg.AddProfile(new StockMapperProfile());
+                cfg.AddProfile(new EquipmentMapperProfile());
             }).CreateMapper());
         }
     }

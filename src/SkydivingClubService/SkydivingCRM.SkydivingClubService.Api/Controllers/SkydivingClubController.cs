@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SkydivingCRM.SkydivingClubService.Api.Models.RequestModels.SkydivingClub;
+using SkydivingCRM.SkydivingClubService.Api.Models.ResponseModels.SkydivingClub;
 using SkydivingCRM.SkydivingClubService.Business.Models.SkydivingClub;
 using SkydivingCRM.SkydivingClubService.Business.Models.User;
 using SkydivingCRM.SkydivingClubService.Business.Services.IServices;
@@ -30,6 +32,16 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
             clubModel = await _skydivingClubService.RegisterSkydivingClub(clubModel, userModel, registerClubRequest.ClubAdministratorPassword);
 
             return Ok(clubModel);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateSkydivingClub([FromBody] UpdateSkydivingClubRequestModel updateSkydivingClubRequest)
+        {
+            var skydivingClubModel = _mapper.Map<UpdateSkydivingClubRequestModel, SkydivingClubModel>(updateSkydivingClubRequest);
+
+            skydivingClubModel  = await _skydivingClubService.UpdateSkydivingClub(skydivingClubModel);
+
+            return Ok(_mapper.Map<SkydivingClubModel, SkydivingClubResponseModel>(skydivingClubModel));
         }
     }
 }

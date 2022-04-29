@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -63,6 +64,21 @@ namespace SkydivingCRM.UserService.Business.Services
             userModel.Roles = userRoles.ToList();
 
             return _tokenService.GenerateJwtAsync(userModel);
+        }
+
+        public async Task ConfirmEmail(Guid userId, string code)
+        {
+            var user = await _userRepository.GetAsync(userId);
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (!result.Succeeded)
+            {
+                var exception = new StringBuilder();
+                foreach (var ex in result.Errors)
+                {
+                    exception.Append(ex.Description + ";");
+                }
+                throw new Exception(exception.ToString());
+            }
         }
 
         private async Task VerifyOnLoginRepeatAsync(UserModel userModel)

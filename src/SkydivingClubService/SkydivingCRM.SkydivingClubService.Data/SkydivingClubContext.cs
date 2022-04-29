@@ -17,7 +17,9 @@ namespace SkydivingCRM.SkydivingClubService.Data
             modelBuilder.ApplyConfiguration(new CountryEntityConfiguration())
                 .ApplyConfiguration(new CityEntityConfiguration())
                 .ApplyConfiguration(new SkydivingClubEntityConfiguration())
-                .ApplyConfiguration(new SkydivingGroupEntityConfiguration());
+                .ApplyConfiguration(new SkydivingGroupEntityConfiguration())
+                .ApplyConfiguration(new StockEntityConfiguration())
+                .ApplyConfiguration(new EquipmentEntityConfiguration());
         }
 
         public DbSet<CountryEntity> Countries { get; set; }
@@ -27,5 +29,9 @@ namespace SkydivingCRM.SkydivingClubService.Data
         public DbSet<SkydivingClubEntity> SkydivingClubs { get; set; }
 
         public DbSet<SkydivingGroupEntity> SkydivingGroups { get; set; }
+
+        public DbSet<StockEntity> Stocks { get; set; }
+
+        public DbSet<EquipmentEntity> Equipments { get; set; }
     }
 }
