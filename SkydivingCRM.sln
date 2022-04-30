@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.SkydivingClubS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmailService", "EmailService", "{57B376BD-E9F1-4CAC-BF91-65B93CC02507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.EmailService.Api", "src\EmailService\SkydivingCRM.EmailService.Api\SkydivingCRM.EmailService.Api.csproj", "{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.EmailService.Api", "src\EmailService\SkydivingCRM.EmailService.Api\SkydivingCRM.EmailService.Api.csproj", "{DE344C6B-0FF0-4CAC-8F8A-7B3974C5CE01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.EmailService.Business", "src\EmailService\SkydivingCRM.EmailService.Business\SkydivingCRM.EmailService.Business.csproj", "{93DFD657-039F-470E-BB9F-77117BD57FA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.EmailService.Business", "src\EmailService\SkydivingCRM.EmailService.Business\SkydivingCRM.EmailService.Business.csproj", "{93DFD657-039F-470E-BB9F-77117BD57FA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -71,7 +71,7 @@ namespace SkydivingCRM.EmailService.Business.RabbitMq.Receivers
         private string GetEmailBody(SkydivingClubAdministratorCreatedEvent ev)
         {
             var body = new StringBuilder($"<h2>Hello dear {ev.Name} {ev.Surname}!</h2>");
-            body.Append($"Please <a href=\"https://localhost:5001/api/auth/confirmEmail?code={ev.EmailConfirmationCode}&userId={ev.Id}\">CONFIRM EMAIL!</a>");
+            body.Append($"Please <a href='https://localhost:5001/api/auth/confirmEmail?code={ev.EmailConfirmationCode}&userId={ev.Id}'>CONFIRM EMAIL!</a>");
             return body.ToString();
         }
     }

@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace SkydivingCRM.SkydivingClubService.Data.Entities
+namespace SkydivingCRM.SkydivingClubService.Api.Models.ResponseModels.SkydivingClub
 {
-    public class SkydivingClubEntity : Entity
+    public class SkydivingClubResponseModel
     {
+        public Guid Id { get; set; }
+
         public string Title { get; set; }
 
         public string Description { get; set; }
@@ -16,11 +17,5 @@ namespace SkydivingCRM.SkydivingClubService.Data.Entities
         public DateTimeOffset? RegistrationDate { get; set; }
 
         public Guid CityId { get; set; }
-
-        public CityEntity City { get; set; }
-
-        public List<SkydivingGroupEntity> SkydivingGroups { get; set; }
-
-        public List<StockEntity> Stocks { get; set; }
     }
 }

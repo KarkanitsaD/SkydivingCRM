@@ -12,5 +12,7 @@ namespace SkydivingCRM.UserService.Business.Services.IServices
         Task RegisterClubAdministrator(UserModel admin, string password);
 
         Task<string> Login(LoginModel loginModel);
+
+        Task ConfirmEmail(Guid userId, string code);
     }
 }

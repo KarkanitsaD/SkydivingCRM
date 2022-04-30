@@ -25,6 +25,8 @@ namespace SkydivingCRM.UserService.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            
+
             services.AddDbContext<UserServiceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<UserEntity, RoleEntity>()

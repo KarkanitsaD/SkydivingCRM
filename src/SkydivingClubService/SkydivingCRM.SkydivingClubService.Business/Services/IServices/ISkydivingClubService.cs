@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using SkydivingCRM.SkydivingClubService.Business.Models;
 using SkydivingCRM.SkydivingClubService.Business.Models.SkydivingClub;
 using SkydivingCRM.SkydivingClubService.Business.Models.User;
 
