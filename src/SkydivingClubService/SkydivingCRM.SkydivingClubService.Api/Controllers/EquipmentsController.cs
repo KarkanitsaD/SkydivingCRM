@@ -22,6 +22,17 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
             _mapper = mapper;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddEquipment([FromBody] AddEquipmentRequestModel equipmentRequestModel)
+        {
+            var equipmentModel = _mapper.Map<AddEquipmentRequestModel, EquipmentModel>(equipmentRequestModel);
+
+            equipmentModel = await _equipmentService.AddEquipment(equipmentModel);
+
+            return Ok(_mapper.Map<EquipmentModel, EquipmentResponseModel>(equipmentModel));
+
+        }
+
         [HttpGet]
         [Route("{equipmentId:guid}")]
         public async Task<IActionResult> GetEquipment([FromRoute] Guid equipmentId)
@@ -39,6 +50,15 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
             equipmentModel = await _equipmentService.UpdateEquipment(equipmentModel);
 
             return Ok(_mapper.Map<EquipmentModel, EquipmentResponseModel>(equipmentModel));
+        }
+
+        [HttpPut]
+        [Route("assignToSportsman")]
+        public async Task<IActionResult> AssignToSportsman(
+            [FromBody] AssignEquipmentToSportsmanRequestModel requestModel)
+        {
+            await _equipmentService.AssignEquipmentToSportsman(requestModel.EquipmentId, requestModel.SportsmanId);
+            return Ok();
         }
 
         [HttpDelete]

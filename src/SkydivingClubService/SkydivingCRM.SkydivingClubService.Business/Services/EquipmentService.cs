@@ -54,6 +54,17 @@ namespace SkydivingCRM.SkydivingClubService.Business.Services
             return _mapper.Map<EquipmentEntity, EquipmentModel>(equipmentEntity);
         }
 
+        public async Task<EquipmentModel> AssignEquipmentToSportsman(Guid equipmentId, Guid sportsmanId)
+        {
+            var equipment = await _equipmentRepository.GetAsync(equipmentId);
+
+            equipment.AssignedSportsmanId = sportsmanId;
+
+            equipment = await _equipmentRepository.UpdateAsync(equipment);
+
+            return _mapper.Map<EquipmentEntity, EquipmentModel>(equipment);
+        }
+
         public async Task<EquipmentModel> MoveToAnotherStock(Guid equipmentId, Guid stockId)
         {
             var equipmentEntity = await _equipmentRepository.GetAsync(equipmentId);

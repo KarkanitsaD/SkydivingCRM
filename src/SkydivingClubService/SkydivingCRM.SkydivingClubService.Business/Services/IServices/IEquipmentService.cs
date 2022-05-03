@@ -14,6 +14,8 @@ namespace SkydivingCRM.SkydivingClubService.Business.Services.IServices
 
         Task<EquipmentModel> DecommissionEquipment(Guid equipmentId);
 
+        Task<EquipmentModel> AssignEquipmentToSportsman(Guid equipmentId, Guid sportsmanId);
+
         Task<EquipmentModel> MoveToAnotherStock(Guid equipmentId, Guid stockId);
 
         Task RemoveEquipment(Guid equipmentId);
