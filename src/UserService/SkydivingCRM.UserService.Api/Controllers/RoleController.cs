@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using SkydivingCRM.UserService.Business.Constants;
+using SkydivingCRM.AuthCommon;
 using SkydivingCRM.UserService.Data.Entities;
 
 namespace SkydivingCRM.UserService.Api.Controllers

@@ -1,15 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using SkydivingCRM.AuthCommon;
 
-namespace SkydivingCRM.UserService.Api.Extensions
+namespace SkydivingCRM.SkydivingClubService.Api.Extensions
 {
     public static class AuthExtensions
     {
+        public static void AddIdentityServerAuthentication(this IServiceCollection services)
+        {
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:5001";
+
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
+        }
+
         public static void AddAuthorizationService(this IServiceCollection services)
         {
             services.AddAuthorization(options =>

@@ -5,18 +5,17 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using SkydivingCRM.UserService.Business.Constants;
+using SkydivingCRM.AuthCommon;
 using SkydivingCRM.UserService.Business.Models.User;
-using SkydivingCRM.UserService.Business.Options;
 using SkydivingCRM.UserService.Business.Services.IServices;
 
 namespace SkydivingCRM.UserService.Business.Services
 {
     public class TokenService : ITokenService
     {
-        private readonly JwtOptions _jwtOptions;
+        private readonly AuthOptions _jwtOptions;
 
-        public TokenService(IOptions<JwtOptions> jwtOptions)
+        public TokenService(IOptions<AuthOptions> jwtOptions)
         {
             _jwtOptions = jwtOptions.Value;
         }
@@ -34,7 +33,7 @@ namespace SkydivingCRM.UserService.Business.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        private List<Claim> GetClaims(UserModel user)
+        public List<Claim> GetClaims(UserModel user)
         {
             var claims = new List<Claim>
             {
@@ -46,7 +45,7 @@ namespace SkydivingCRM.UserService.Business.Services
             };
 
             var roleClaims = user.Roles.Select(role => 
-                new Claim(ClaimTypesConstants.RolesClaimType, role));
+                new Claim(ClaimTypesConstants.RoleClaimType, role));
 
             claims.AddRange(roleClaims);
 

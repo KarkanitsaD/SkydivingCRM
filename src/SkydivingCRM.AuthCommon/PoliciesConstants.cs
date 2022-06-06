@@ -1,4 +1,4 @@
-﻿namespace SkydivingCRM.UserService.Business.Constants
+﻿namespace SkydivingCRM.AuthCommon
 {
     public class PoliciesConstants
     {

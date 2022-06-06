@@ -13,7 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SkydivingCRM.AuthCommon\SkydivingCRM.AuthCommon.csproj" />
     <ProjectReference Include="..\SkydivingCRM.UserService.Data\SkydivingCRM.UserService.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Options\" />
   </ItemGroup>
 
 </Project>

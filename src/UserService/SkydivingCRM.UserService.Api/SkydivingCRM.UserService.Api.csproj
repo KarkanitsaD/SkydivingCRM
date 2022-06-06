@@ -7,6 +7,8 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="IdentityServer4" Version="3.1.4" />
+    <PackageReference Include="IdentityServer4.Storage" Version="3.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.16">
@@ -22,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SkydivingCRM.AuthCommon\SkydivingCRM.AuthCommon.csproj" />
     <ProjectReference Include="..\SkydivingCRM.UserService.Business\SkydivingCRM.UserService.Business.csproj" />
     <ProjectReference Include="..\SkydivingCRM.UserService.Data\SkydivingCRM.UserService.Data.csproj" />
   </ItemGroup>

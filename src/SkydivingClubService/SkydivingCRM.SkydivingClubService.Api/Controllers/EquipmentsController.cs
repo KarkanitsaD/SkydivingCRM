@@ -30,7 +30,6 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
             equipmentModel = await _equipmentService.AddEquipment(equipmentModel);
 
             return Ok(_mapper.Map<EquipmentModel, EquipmentResponseModel>(equipmentModel));
-
         }
 
         [HttpGet]

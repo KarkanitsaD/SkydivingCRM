@@ -5,7 +5,7 @@ namespace SkydivingCRM.SkydivingClubService.Api.Extensions
 {
     public static class RabbitMqExtensions
     {
-        public static void AddSenders(this IServiceCollection services)
+        public static void AddRabbitMqSenders(this IServiceCollection services)
         {
             services.AddScoped<SkydivingClubCreatedSender>();
         }

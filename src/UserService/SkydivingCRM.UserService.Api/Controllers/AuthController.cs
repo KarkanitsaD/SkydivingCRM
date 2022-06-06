@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SkydivingCRM.AuthCommon;
 using SkydivingCRM.UserService.Api.Models.RequestModels.User;
 using SkydivingCRM.UserService.Business.Models.Auth;
 using SkydivingCRM.UserService.Business.Models.User;
@@ -29,8 +31,8 @@ namespace SkydivingCRM.UserService.Api.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterUserRequestModel model)
         {
             var userModel = _mapper.Map<RegisterUserRequestModel, UserModel>(model);
-             await _authService.RegisterClubAdministrator(userModel, model.Password);
-             return Ok();
+            await _authService.RegisterClubAdministrator(userModel, model.Password);
+            return Ok();
         }
 
         [HttpPost]
@@ -46,6 +48,14 @@ namespace SkydivingCRM.UserService.Api.Controllers
         public async Task<IActionResult> ConfirmEmail([FromQuery] Guid userId, [FromQuery] string code)
         {
             await _authService.ConfirmEmailAsync(userId, code);
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("Test")]
+        [Authorize(Roles = "ClubAdministrator")]
+        public async Task<IActionResult> Test()
+        {
             return Ok();
         }
     }

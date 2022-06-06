@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SkydivingCRM.UserService.Business.Constants;
+using SkydivingCRM.AuthCommon;
 using SkydivingCRM.UserService.Business.Models.User;
 using SkydivingCRM.UserService.Business.Services.IServices;
 using SkydivingCRM.UserService.Data.Entities;

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using SkydivingCRM.UserService.Business.Constants;
+using SkydivingCRM.AuthCommon;
 
 namespace SkydivingCRM.UserService.Api.AuthorizationHandlers
 {
@@ -20,10 +20,10 @@ namespace SkydivingCRM.UserService.Api.AuthorizationHandlers
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, RolesAuthorizationRequirement requirement)
         {
-            if (context.User.HasClaim(c => c.Type == ClaimTypesConstants.RolesClaimType))
+            if (context.User.HasClaim(c => c.Type == ClaimTypesConstants.RoleClaimType))
             {
                 var userRoles = context.User.Claims
-                    .Where(c => c.Type == ClaimTypesConstants.RolesClaimType)
+                    .Where(c => c.Type == ClaimTypesConstants.RoleClaimType)
                     .Select(c => c.Value)
                     .ToList();
 

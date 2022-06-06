@@ -1,8 +1,8 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 
-namespace SkydivingCRM.UserService.Business.Options
+namespace SkydivingCRM.AuthCommon
 {
-    public class JwtOptions
+    public class AuthOptions
     {
         public string SecretKey { get; set; }
 
@@ -13,6 +13,6 @@ namespace SkydivingCRM.UserService.Business.Options
         public string TokenLifeTimeInSeconds { get; set; }
 
         public SymmetricSecurityKey SymmetricSecurityKey =>
-            new (System.Text.Encoding.ASCII.GetBytes(SecretKey));
+            new SymmetricSecurityKey(System.Text.Encoding.ASCII.GetBytes(SecretKey));
     }
 }

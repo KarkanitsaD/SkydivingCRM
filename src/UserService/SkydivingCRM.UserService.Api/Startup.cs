@@ -4,10 +4,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using SkydivingCRM.UserService.Api.Extensions;
-using SkydivingCRM.UserService.Business.Options;
+using SkydivingCRM.UserService.Api.IdentityServer4;
 using SkydivingCRM.UserService.Business.RabbitMq.Receivers;
 using SkydivingCRM.UserService.Data;
 using SkydivingCRM.UserService.Data.Entities;
@@ -25,7 +24,14 @@ namespace SkydivingCRM.UserService.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            //Auth
+            services.AddAuthorizationService();
+
+            //Options
+            services.AddOptions(Configuration);
+
+            //Services
+            services.AddMappingProfiles();
 
             services.AddDbContext<UserServiceContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -33,27 +39,21 @@ namespace SkydivingCRM.UserService.Api
                 .AddEntityFrameworkStores<UserServiceContext>()
                 .AddDefaultTokenProviders();
 
-
-            services.AddJwtOptions(Configuration);
-
-            services.AddMappingProfiles();
-
-            services.AddJwtBearerAuthentication(Configuration.GetSection(nameof(JwtOptions)).Get<JwtOptions>());
-            services.AddAuthorizationHandlers();
-            services.AddAuthorizationService();
-
-            services.AddRabbitMqSenders();
-
             services.AddRepositories();
             services.AddServices();
             services.AddControllers();
 
-            services.AddHostedService<SkydivingClubCreatedReceiver>();
+            //IdentityServer4
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddInMemoryApiResources(Config.ApiResources)
+                .AddInMemoryClients(Config.Clients)
+                .AddResourceOwnerValidator<UserValidator>();
+            services.AddLocalApiAuthentication();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SkydivingCRM.UserService.Api", Version = "v1" });
-            });
+
+            //RabbitMq
+            services.AddHostedService<SkydivingClubCreatedReceiver>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -61,13 +61,13 @@ namespace SkydivingCRM.UserService.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SkydivingCRM.UserService.Api v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseIdentityServer();
 
             app.UseAuthentication();
             app.UseAuthorization();

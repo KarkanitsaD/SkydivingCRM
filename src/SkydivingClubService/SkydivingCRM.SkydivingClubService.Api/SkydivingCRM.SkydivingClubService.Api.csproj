@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SkydivingCRM.AuthCommon\SkydivingCRM.AuthCommon.csproj" />
     <ProjectReference Include="..\SkydivingCRM.SkydivingClubService.Business\SkydivingCRM.SkydivingClubService.Business.csproj" />
     <ProjectReference Include="..\SkydivingCRM.SkydivingClubService.Data\SkydivingCRM.SkydivingClubService.Data.csproj" />
   </ItemGroup>

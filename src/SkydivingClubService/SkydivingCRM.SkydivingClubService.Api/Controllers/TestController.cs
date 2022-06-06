@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SkydivingCRM.AuthCommon;
 
 namespace SkydivingCRM.SkydivingClubService.Api.Controllers
 {
@@ -8,9 +10,11 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
     public class TestController : ControllerBase
     {
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = RolesConstants.SportsmanRole)]
         public string Get()
         {
+            var u = User;
+            var c = u.Claims.ToList();
             return "Ok";
         }
     }

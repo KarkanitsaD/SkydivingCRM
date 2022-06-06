@@ -1,13 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SkydivingCRM.SkydivingClubService.Api.Extensions;
-using SkydivingCRM.SkydivingClubService.Data;
+using Microsoft.IdentityModel.Tokens;
 
-namespace SkydivingCRM.SkydivingClubService.Api
+namespace TestApi.Api
 {
     public class Startup
     {
@@ -20,25 +18,26 @@ namespace SkydivingCRM.SkydivingClubService.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Auth
-            services.AddIdentityServerAuthentication();
-            services.AddAuthorizationService();
-
-            //Options
-
-
-            //Services
-            services.AddMappingProfiles();
-
-            services.AddDbContext<SkydivingClubContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
-
-            services.AddRabbitMqSenders();
-            services.AddRepositories();
-            services.AddServices();
             services.AddControllers();
+
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Authority = "https://localhost:5001";
+
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Test", testPolicyBuilder =>
+                {
+                    testPolicyBuilder.RequireRole("ClubAdministrator");
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

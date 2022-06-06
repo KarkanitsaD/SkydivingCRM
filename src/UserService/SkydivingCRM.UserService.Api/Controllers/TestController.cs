@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using IdentityServer4;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SkydivingCRM.UserService.Business.Constants;
 
 namespace SkydivingCRM.UserService.Api.Controllers
 {
@@ -9,7 +9,7 @@ namespace SkydivingCRM.UserService.Api.Controllers
     public class TestController : ControllerBase
     {
         [HttpGet]
-        [Authorize(Policy = PoliciesConstants.ClubAdministrator)]
+        [Authorize(Policy = IdentityServerConstants.LocalApi.PolicyName)]
         public string Get()
         {
             return "OK";

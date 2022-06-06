@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SkydivingCRM.UserService.Business.Constants;
+using SkydivingCRM.AuthCommon;
 using SkydivingCRM.UserService.Business.Models.Auth;
 using SkydivingCRM.UserService.Business.Models.User;
 using SkydivingCRM.UserService.Business.Services.IServices;
@@ -63,6 +63,11 @@ namespace SkydivingCRM.UserService.Business.Services
             userModel.Roles = userRoles.ToList();
 
             return _tokenService.GenerateJwtAsync(userModel);
+        }
+
+        public Task ConfirmEmail(Guid userId, string code)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task ConfirmEmailAsync(Guid userId, string code)

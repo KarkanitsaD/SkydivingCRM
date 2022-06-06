@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SkydivingCRM.UserService.Business.Options;
+using SkydivingCRM.AuthCommon;
 
 namespace SkydivingCRM.UserService.Api.Extensions
 {
     public static class OptionsExtensions
     {
-        public static void AddJwtOptions(this IServiceCollection services, IConfiguration configuration)
+        public static void AddOptions(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));
+            services.Configure<AuthOptions>(configuration.GetSection(nameof(AuthOptions)));
         }
     }
 }
