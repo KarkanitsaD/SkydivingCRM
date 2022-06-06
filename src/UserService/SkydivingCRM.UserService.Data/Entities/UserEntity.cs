@@ -18,12 +18,14 @@ namespace SkydivingCRM.UserService.Data.Entities
 
         public string Phone { get; set; }
 
-        public DateTimeOffset? StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
-        public DateTimeOffset? DateOfRegistration { get; set; }
+        public DateTime? DateOfRegistration { get; set; }
 
         public List<SkydivingGroupSportsmanEntity> SkydivingGroupsAsSportsman { get; set; }
 
         public List<SkydivingGroupInstructorEntity> SkydivingGroupsAsInstructor { get; set; }
+
+        public UserImageEntity Image { get; set; }
     }
 }

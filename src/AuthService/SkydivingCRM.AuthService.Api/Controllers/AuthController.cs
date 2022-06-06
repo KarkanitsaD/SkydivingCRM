@@ -19,8 +19,8 @@ namespace SkydivingCRM.AuthService.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Authenticate([FromBody] LoginModel loginModel)
         {
-            var result = await _authService.LoginAsync(loginModel);
-            return Ok(result);
+            var accessToken = await _authService.LoginAsync(loginModel);
+            return Ok(accessToken);
         }
     }
 }

@@ -2,14 +2,10 @@
 
 namespace SkydivingCRM.UserService.Data.Entities
 {
-    public class SkydivingGroupInstructorEntity
+    public class UserImageEntity : MediaEntity
     {
         public Guid UserId { get; set; }
 
         public UserEntity User { get; set; }
-
-        public Guid GroupId { get; set; }
-
-        public DateTime FormationDate { get; set; }
     }
 }

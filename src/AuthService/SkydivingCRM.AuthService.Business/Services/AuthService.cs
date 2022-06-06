@@ -2,7 +2,9 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel.Client;
+using Microsoft.Extensions.Options;
 using SkydivingCRM.AuthService.Business.Models;
+using SkydivingCRM.AuthService.Business.Options;
 using SkydivingCRM.AuthService.Business.Services.IServices;
 
 namespace SkydivingCRM.AuthService.Business.Services
@@ -10,16 +12,18 @@ namespace SkydivingCRM.AuthService.Business.Services
     public class AuthService : IAuthService
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IdentityServerOptions _identityServerOptions;
 
-        public AuthService(IHttpClientFactory clientFactory)
+        public AuthService(IHttpClientFactory clientFactory, IOptions<IdentityServerOptions> options)
         {
             _httpClientFactory = clientFactory;
+            _identityServerOptions = options.Value;
         }
 
         public async Task<SuccessLoginModel> LoginAsync(LoginModel loginModel)
         {
             var client = _httpClientFactory.CreateClient("IdentityServerClient");
-            var disco = await client.GetDiscoveryDocumentAsync("https://localhost:5001");
+            var disco = await client.GetDiscoveryDocumentAsync();
             if (disco.IsError)
             {
                 throw new Exception("IS4 not allowed now!");
@@ -29,13 +33,13 @@ namespace SkydivingCRM.AuthService.Business.Services
             {
                 Address = disco.TokenEndpoint,
 
-                ClientId = "client",
+                ClientId = _identityServerOptions.ClientId,
 
-                ClientSecret = "secret",
+                ClientSecret = _identityServerOptions.ClientSecret,
 
-                Scope = "SkydivingCRM.API IdentityServerApi",
+                Scope = _identityServerOptions.Scope,
 
-                GrantType = "password",
+                GrantType = _identityServerOptions.GrantType,
 
                 UserName = loginModel.Username,
 
