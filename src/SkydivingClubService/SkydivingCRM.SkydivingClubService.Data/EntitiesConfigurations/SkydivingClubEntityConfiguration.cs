@@ -19,10 +19,6 @@ namespace SkydivingCRM.SkydivingClubService.Data.EntitiesConfigurations
             builder.Property(b => b.FoundationDate).HasDefaultValueSql("GETUTCDATE()");
 
             builder.Property(b => b.RegistrationDate).HasDefaultValueSql("GETUTCDATE()");
-
-            builder.HasOne(b => b.City)
-                .WithMany(c => c.SkydivingClubs)
-                .HasForeignKey(b => b.CityId);
         }
     }
 }

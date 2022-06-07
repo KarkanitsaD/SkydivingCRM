@@ -35,9 +35,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.AuthCommon", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthService", "AuthService", "{00B35FBC-2E74-4424-9F17-2BF82ADF5630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.AuthService.Api", "src\AuthService\SkydivingCRM.AuthService.Api\SkydivingCRM.AuthService.Api.csproj", "{CF51FD52-23C8-4EE6-A422-7F732DE63F1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.AuthService.Api", "src\AuthService\SkydivingCRM.AuthService.Api\SkydivingCRM.AuthService.Api.csproj", "{CF51FD52-23C8-4EE6-A422-7F732DE63F1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.AuthService.Business", "src\AuthService\SkydivingCRM.AuthService.Business\SkydivingCRM.AuthService.Business.csproj", "{547C377D-9E1D-4B94-BA88-DE3B1B1EDBA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkydivingCRM.AuthService.Business", "src\AuthService\SkydivingCRM.AuthService.Business\SkydivingCRM.AuthService.Business.csproj", "{547C377D-9E1D-4B94-BA88-DE3B1B1EDBA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatisticService", "StatisticService", "{A20FDF69-25F0-456B-84CF-1551E8C2C45F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.StatisticService.Api", "src\StatisticService\SkydivingCRM.StatisticService.Api\SkydivingCRM.StatisticService.Api.csproj", "{27778C3E-6AA3-440D-9D98-7696656C1818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.StatisticService.Business", "src\StatisticService\SkydivingCRM.StatisticService.Business\SkydivingCRM.StatisticService.Business.csproj", "{A534CC7A-CDF3-462F-95F6-53FD7452B938}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkydivingCRM.StatisticService.Data", "src\StatisticService\SkydivingCRM.StatisticService.Data\SkydivingCRM.StatisticService.Data.csproj", "{4E398D1F-FF7F-4D0D-AE29-2C17C0423E71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +97,18 @@ Global
 		{547C377D-9E1D-4B94-BA88-DE3B1B1EDBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547C377D-9E1D-4B94-BA88-DE3B1B1EDBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{547C377D-9E1D-4B94-BA88-DE3B1B1EDBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27778C3E-6AA3-440D-9D98-7696656C1818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27778C3E-6AA3-440D-9D98-7696656C1818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27778C3E-6AA3-440D-9D98-7696656C1818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27778C3E-6AA3-440D-9D98-7696656C1818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A534CC7A-CDF3-462F-95F6-53FD7452B938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A534CC7A-CDF3-462F-95F6-53FD7452B938}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A534CC7A-CDF3-462F-95F6-53FD7452B938}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A534CC7A-CDF3-462F-95F6-53FD7452B938}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E398D1F-FF7F-4D0D-AE29-2C17C0423E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E398D1F-FF7F-4D0D-AE29-2C17C0423E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E398D1F-FF7F-4D0D-AE29-2C17C0423E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E398D1F-FF7F-4D0D-AE29-2C17C0423E71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +130,10 @@ Global
 		{00B35FBC-2E74-4424-9F17-2BF82ADF5630} = {813DC32E-817A-4EF1-BFB8-4756F86F5316}
 		{CF51FD52-23C8-4EE6-A422-7F732DE63F1B} = {00B35FBC-2E74-4424-9F17-2BF82ADF5630}
 		{547C377D-9E1D-4B94-BA88-DE3B1B1EDBA5} = {00B35FBC-2E74-4424-9F17-2BF82ADF5630}
+		{A20FDF69-25F0-456B-84CF-1551E8C2C45F} = {813DC32E-817A-4EF1-BFB8-4756F86F5316}
+		{27778C3E-6AA3-440D-9D98-7696656C1818} = {A20FDF69-25F0-456B-84CF-1551E8C2C45F}
+		{A534CC7A-CDF3-462F-95F6-53FD7452B938} = {A20FDF69-25F0-456B-84CF-1551E8C2C45F}
+		{4E398D1F-FF7F-4D0D-AE29-2C17C0423E71} = {A20FDF69-25F0-456B-84CF-1551E8C2C45F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {326DFF25-E7F5-4EDE-BEC6-92A9D2FBB36E}

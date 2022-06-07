@@ -21,8 +21,8 @@ namespace SkydivingCRM.SkydivingClubService.Api
         public void ConfigureServices(IServiceCollection services)
         {
             //Auth
-            services.AddIdentityServerAuthentication();
-            services.AddAuthorizationService();
+            //services.AddIdentityServerAuthentication();
+            //services.AddAuthorizationService();
 
             //Options
 

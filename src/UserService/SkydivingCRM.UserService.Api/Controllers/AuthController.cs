@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SkydivingCRM.AuthCommon;
 using SkydivingCRM.UserService.Api.Models.RequestModels.User;
 using SkydivingCRM.UserService.Business.Models.Auth;
 using SkydivingCRM.UserService.Business.Models.User;

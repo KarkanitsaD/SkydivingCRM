@@ -1,6 +1,6 @@
 ﻿namespace SkydivingCRM.AuthService.Business.Models
 {
-    public class SuccessLoginModel
+    public class LoginSuccessModel
     {
         public string AccessToken { get; set; }
     }

@@ -12,8 +12,6 @@ using RabbitMQ.Client.Events;
 using SkydivingCRM.UserService.Business.RabbitMq.Events.Receive;
 using SkydivingCRM.UserService.Business.Services.IServices;
 using SkydivingCRM.UserService.Data.Entities;
-using SkydivingCRM.UserService.Business.RabbitMq.Events.Send;
-using SkydivingCRM.UserService.Business.RabbitMq.Senders;
 
 namespace SkydivingCRM.UserService.Business.RabbitMq.Receivers
 {
@@ -74,7 +72,7 @@ namespace SkydivingCRM.UserService.Business.RabbitMq.Receivers
             var user = await userManager.FindByEmailAsync(skydivingClubCreatedEvent.User.Email);
             var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
 
-            var skydivingClubAdministratorCreatedSender =
+            /*var skydivingClubAdministratorCreatedSender =
                 scope.ServiceProvider.GetRequiredService<SkydivingClubAdministratorCreatedSender>();
             var ev = new SkydivingClubAdministratorCreatedEvent
             {
@@ -85,7 +83,7 @@ namespace SkydivingCRM.UserService.Business.RabbitMq.Receivers
                 Surname = user.Surname
             };
 
-            skydivingClubAdministratorCreatedSender.Send(ev);
+            skydivingClubAdministratorCreatedSender.Send(ev);*/
         }
     }
 }

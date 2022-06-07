@@ -20,7 +20,7 @@ namespace SkydivingCRM.AuthService.Business.Services
             _identityServerOptions = options.Value;
         }
 
-        public async Task<SuccessLoginModel> LoginAsync(LoginModel loginModel)
+        public async Task<LoginSuccessModel> LoginAsync(LoginModel loginModel)
         {
             var client = _httpClientFactory.CreateClient("IdentityServerClient");
             var disco = await client.GetDiscoveryDocumentAsync();
@@ -52,7 +52,7 @@ namespace SkydivingCRM.AuthService.Business.Services
                 throw new Exception("Not authorized");
             }
 
-            return new SuccessLoginModel
+            return new LoginSuccessModel
             {
                 AccessToken = tokenResponse.AccessToken
             };

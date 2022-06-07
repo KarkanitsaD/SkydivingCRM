@@ -10,6 +10,6 @@ namespace SkydivingCRM.SkydivingClubService.Api.Models.RequestModels.SkydivingCl
 
         public string Address { get; set; }
 
-        public DateTimeOffset? FoundationDate { get; set; }
+        public DateTime? FoundationDate { get; set; }
     }
 }

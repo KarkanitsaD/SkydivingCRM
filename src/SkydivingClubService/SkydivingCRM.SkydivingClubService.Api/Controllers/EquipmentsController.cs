@@ -27,7 +27,7 @@ namespace SkydivingCRM.SkydivingClubService.Api.Controllers
         {
             var equipmentModel = _mapper.Map<AddEquipmentRequestModel, EquipmentModel>(equipmentRequestModel);
 
-            equipmentModel = await _equipmentService.AddEquipment(equipmentModel);
+            equipmentModel = await _equipmentService.AddEquipment(equipmentModel, equipmentRequestModel.Images);
 
             return Ok(_mapper.Map<EquipmentModel, EquipmentResponseModel>(equipmentModel));
         }

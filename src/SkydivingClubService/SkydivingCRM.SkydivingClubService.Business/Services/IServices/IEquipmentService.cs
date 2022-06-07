@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using SkydivingCRM.SkydivingClubService.Business.Models.Equipment;
 
@@ -10,7 +11,7 @@ namespace SkydivingCRM.SkydivingClubService.Business.Services.IServices
 
         Task<EquipmentModel> UpdateEquipment(EquipmentModel equipment);
 
-        Task<EquipmentModel> AddEquipment(EquipmentModel equipment);
+        Task<EquipmentModel> AddEquipment(EquipmentModel equipment, List<string> images);
 
         Task<EquipmentModel> DecommissionEquipment(Guid equipmentId);
 

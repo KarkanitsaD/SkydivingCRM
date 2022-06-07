@@ -67,7 +67,7 @@ namespace SkydivingCRM.UserService.Api
 
             app.UseRouting();
 
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
 
             app.UseAuthentication();
             app.UseAuthorization();

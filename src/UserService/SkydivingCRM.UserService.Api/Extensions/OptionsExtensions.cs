@@ -8,7 +8,7 @@ namespace SkydivingCRM.UserService.Api.Extensions
     {
         public static void AddOptions(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<AuthOptions>(configuration.GetSection(nameof(AuthOptions)));
+            
         }
     }
 }

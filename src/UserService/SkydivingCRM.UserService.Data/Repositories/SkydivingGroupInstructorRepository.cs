@@ -15,7 +15,7 @@ namespace SkydivingCRM.UserService.Data.Repositories
 
         public async Task<SkydivingGroupInstructorEntity> GetAsync(Guid userId, Guid groupId)
         {
-            return await DbSet.FirstOrDefaultAsync(gi => gi.UserId == userId && gi.GroupId == groupId);
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(gi => gi.UserId == userId && gi.GroupId == groupId);
         }
     }
 }

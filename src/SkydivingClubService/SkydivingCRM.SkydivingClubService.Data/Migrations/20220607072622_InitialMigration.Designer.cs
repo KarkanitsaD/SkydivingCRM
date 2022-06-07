@@ -10,7 +10,7 @@ using SkydivingCRM.SkydivingClubService.Data;
 namespace SkydivingCRM.SkydivingClubService.Data.Migrations
 {
     [DbContext(typeof(SkydivingClubContext))]
-    [Migration("20220420124702_InitialMigration")]
+    [Migration("20220607072622_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,13 +21,26 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.CityEntity", b =>
+            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.EquipmentEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CountryId")
+                    b.Property<Guid?>("AssignedSportsmanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateAdded")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2022, 6, 7, 10, 26, 21, 792, DateTimeKind.Local).AddTicks(5813));
+
+                    b.Property<bool>("IsDecommissioned")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<Guid>("StockId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
@@ -36,24 +49,9 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("StockId");
 
-                    b.ToTable("Cities");
-                });
-
-            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.CountryEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Countries");
+                    b.ToTable("Equipments");
                 });
 
             modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.SkydivingClubEntity", b =>
@@ -66,20 +64,17 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CityId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset?>("FoundationDate")
+                    b.Property<DateTime?>("FoundationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTimeOffset?>("RegistrationDate")
+                    b.Property<DateTime?>("RegistrationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("Title")
@@ -87,8 +82,6 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CityId");
 
                     b.ToTable("SkydivingClubs");
                 });
@@ -99,14 +92,14 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset?>("FoundationDate")
+                    b.Property<DateTime?>("FoundationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
-                    b.Property<DateTimeOffset?>("RegistrationDate")
+                    b.Property<DateTime>("RegistrationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<Guid>("SkydivingClubId")
@@ -123,26 +116,35 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                     b.ToTable("SkydivingGroups");
                 });
 
-            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.CityEntity", b =>
+            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.StockEntity", b =>
                 {
-                    b.HasOne("SkydivingCRM.SkydivingClubService.Data.Entities.CountryEntity", "Country")
-                        .WithMany("Cities")
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Navigation("Country");
+                    b.Property<Guid>("SkydivingClubId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SkydivingClubId");
+
+                    b.ToTable("Stocks");
                 });
 
-            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.SkydivingClubEntity", b =>
+            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.EquipmentEntity", b =>
                 {
-                    b.HasOne("SkydivingCRM.SkydivingClubService.Data.Entities.CityEntity", "City")
-                        .WithMany("SkydivingClubs")
-                        .HasForeignKey("CityId")
+                    b.HasOne("SkydivingCRM.SkydivingClubService.Data.Entities.StockEntity", "Stock")
+                        .WithMany("Equipments")
+                        .HasForeignKey("StockId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("City");
+                    b.Navigation("Stock");
                 });
 
             modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.SkydivingGroupEntity", b =>
@@ -156,19 +158,27 @@ namespace SkydivingCRM.SkydivingClubService.Data.Migrations
                     b.Navigation("SkydivingClub");
                 });
 
-            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.CityEntity", b =>
+            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.StockEntity", b =>
                 {
-                    b.Navigation("SkydivingClubs");
-                });
+                    b.HasOne("SkydivingCRM.SkydivingClubService.Data.Entities.SkydivingClubEntity", "SkydivingClub")
+                        .WithMany("Stocks")
+                        .HasForeignKey("SkydivingClubId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.CountryEntity", b =>
-                {
-                    b.Navigation("Cities");
+                    b.Navigation("SkydivingClub");
                 });
 
             modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.SkydivingClubEntity", b =>
                 {
                     b.Navigation("SkydivingGroups");
+
+                    b.Navigation("Stocks");
+                });
+
+            modelBuilder.Entity("SkydivingCRM.SkydivingClubService.Data.Entities.StockEntity", b =>
+                {
+                    b.Navigation("Equipments");
                 });
 #pragma warning restore 612, 618
         }

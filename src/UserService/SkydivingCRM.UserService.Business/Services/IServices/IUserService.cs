@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using SkydivingCRM.UserService.Business.Models;
+using SkydivingCRM.UserService.Business.Models.Media;
 using SkydivingCRM.UserService.Business.Models.User;
 
 namespace SkydivingCRM.UserService.Business.Services.IServices
@@ -17,5 +19,9 @@ namespace SkydivingCRM.UserService.Business.Services.IServices
         Task RemoveSportsmanFromGroup(SkydivingGroupSportsmanModel model);
 
         Task RemoveInstructorFromGroup(SkydivingGroupInstructorModel model);
+
+        Task SetUserImage(MediaByteArrayModel image, Guid userId);
+
+        Task RemoveUserImage(Guid userId);
     }
 }

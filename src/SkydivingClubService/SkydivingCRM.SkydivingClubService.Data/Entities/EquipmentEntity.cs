@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SkydivingCRM.SkydivingClubService.Data.Entities
 {
@@ -15,5 +16,7 @@ namespace SkydivingCRM.SkydivingClubService.Data.Entities
         public Guid StockId { get; set; }
 
         public StockEntity Stock { get; set; }
+
+        public List<EquipmentImageEntity> Images { get; set; }
     }
 }

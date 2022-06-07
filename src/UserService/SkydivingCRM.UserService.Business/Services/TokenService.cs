@@ -37,12 +37,26 @@ namespace SkydivingCRM.UserService.Business.Services
         {
             var claims = new List<Claim>
             {
-                new (ClaimTypesConstants.IdClaimType, user.Id.ToString()),
-                new (ClaimTypesConstants.NameClaimType, user.Name),
-                new (ClaimTypesConstants.PatronymicClaimType, user.Patronymic),
-                new (ClaimTypesConstants.SurnameClaimType, user.Surname),
-                new (ClaimTypesConstants.EmailClaimType, user.Email)
+                new (ClaimTypesConstants.IdClaimType, user.Id.ToString())
             };
+
+            if (user.Name != null)
+            {
+                claims.Add(new(ClaimTypesConstants.NameClaimType, user.Name));
+            }
+
+            if (user.Surname != null)
+            {
+                claims.Add(new(ClaimTypesConstants.SurnameClaimType, user.Surname));
+            }
+            if (user.Patronymic != null)
+            {
+                claims.Add(new Claim(ClaimTypesConstants.PatronymicClaimType, user.Patronymic));
+            }
+            if (user.Email != null)
+            {
+                claims.Add(new Claim(ClaimTypesConstants.EmailClaimType, user.Email));
+            }
 
             var roleClaims = user.Roles.Select(role => 
                 new Claim(ClaimTypesConstants.RoleClaimType, role));

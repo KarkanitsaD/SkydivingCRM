@@ -20,6 +20,6 @@ namespace SkydivingCRM.UserService.Api.Models.RequestModels.User
 
         public string Password { get; set; }
 
-        public DateTimeOffset? StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
     }
 }

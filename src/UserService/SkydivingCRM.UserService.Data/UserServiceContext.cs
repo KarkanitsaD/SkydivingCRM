@@ -25,5 +25,7 @@ namespace SkydivingCRM.UserService.Data
         public DbSet<SkydivingGroupInstructorEntity> SkydivingGroupInstructors { get; set; }
 
         public DbSet<SkydivingGroupSportsmanEntity> SkydivingGroupSportsmen { get; set; }
+
+        public DbSet<UserImageEntity> UserImages { get; set; }
     }
 }

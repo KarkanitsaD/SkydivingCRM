@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SkydivingCRM.SkydivingClubService.Api.Models.ResponseModels.Equipment
 {
@@ -15,5 +16,7 @@ namespace SkydivingCRM.SkydivingClubService.Api.Models.ResponseModels.Equipment
         public Guid? AssignedSportsmanId { get; set; }
 
         public Guid StockId { get; set; }
+
+        public List<string> ImagesIds { get; set; }
     }
 }

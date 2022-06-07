@@ -156,9 +156,9 @@ namespace SkydivingCRM.UserService.Data.Migrations
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset>("FormationDate")
+                    b.Property<DateTime>("FormationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
                     b.HasKey("UserId", "GroupId");
@@ -174,9 +174,9 @@ namespace SkydivingCRM.UserService.Data.Migrations
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset>("FormationDate")
+                    b.Property<DateTime>("FormationDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
                     b.HasKey("UserId", "GroupId");
@@ -197,9 +197,9 @@ namespace SkydivingCRM.UserService.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset?>("DateOfRegistration")
+                    b.Property<DateTime?>("DateOfRegistration")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetimeoffset")
+                        .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<string>("Email")
@@ -220,7 +220,6 @@ namespace SkydivingCRM.UserService.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
@@ -238,8 +237,7 @@ namespace SkydivingCRM.UserService.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -253,11 +251,10 @@ namespace SkydivingCRM.UserService.Data.Migrations
                     b.Property<Guid>("SkydivingClubId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTimeOffset?>("StartDate")
-                        .HasColumnType("datetimeoffset");
+                    b.Property<DateTime?>("StartDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -278,6 +275,29 @@ namespace SkydivingCRM.UserService.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("SkydivingCRM.UserService.Data.Entities.UserImageEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("Content")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("UserImageEntity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -353,8 +373,21 @@ namespace SkydivingCRM.UserService.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SkydivingCRM.UserService.Data.Entities.UserImageEntity", b =>
+                {
+                    b.HasOne("SkydivingCRM.UserService.Data.Entities.UserEntity", "User")
+                        .WithOne("Image")
+                        .HasForeignKey("SkydivingCRM.UserService.Data.Entities.UserImageEntity", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SkydivingCRM.UserService.Data.Entities.UserEntity", b =>
                 {
+                    b.Navigation("Image");
+
                     b.Navigation("SkydivingGroupsAsInstructor");
 
                     b.Navigation("SkydivingGroupsAsSportsman");

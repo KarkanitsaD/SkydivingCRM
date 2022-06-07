@@ -14,17 +14,11 @@ namespace SkydivingCRM.SkydivingClubService.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new CountryEntityConfiguration())
-                .ApplyConfiguration(new CityEntityConfiguration())
-                .ApplyConfiguration(new SkydivingClubEntityConfiguration())
+            modelBuilder.ApplyConfiguration(new SkydivingClubEntityConfiguration())
                 .ApplyConfiguration(new SkydivingGroupEntityConfiguration())
                 .ApplyConfiguration(new StockEntityConfiguration())
                 .ApplyConfiguration(new EquipmentEntityConfiguration());
         }
-
-        public DbSet<CountryEntity> Countries { get; set; }
-
-        public DbSet<CityEntity> Cities { get; set; }
 
         public DbSet<SkydivingClubEntity> SkydivingClubs { get; set; }
 

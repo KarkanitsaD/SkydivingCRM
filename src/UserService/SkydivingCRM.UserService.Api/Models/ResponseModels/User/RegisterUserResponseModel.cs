@@ -16,8 +16,8 @@ namespace SkydivingCRM.UserService.Api.Models.ResponseModels.User
 
         public string Phone { get; set; }
 
-        public DateTimeOffset StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public DateTimeOffset DateOfRegistration { get; set; }
+        public DateTime DateOfRegistration { get; set; }
     }
 }

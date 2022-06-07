@@ -5,6 +5,6 @@ namespace SkydivingCRM.AuthService.Business.Services.IServices
 {
     public interface IAuthService
     {
-        Task<SuccessLoginModel> LoginAsync(LoginModel loginModel);
+        Task<LoginSuccessModel> LoginAsync(LoginModel loginModel);
     }
 }

@@ -1,17 +1,15 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using IdentityServer4.Models;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
 using SkydivingCRM.UserService.Business.Models.User;
 using SkydivingCRM.UserService.Business.Services.IServices;
 using SkydivingCRM.UserService.Data.Entities;
 using SkydivingCRM.UserService.Data.Repositories.IRepositories;
 
-namespace SkydivingCRM.UserService.Api
+namespace SkydivingCRM.UserService.Api.IdentityServer4
 {
     public class UserValidator : IResourceOwnerPasswordValidator
     {

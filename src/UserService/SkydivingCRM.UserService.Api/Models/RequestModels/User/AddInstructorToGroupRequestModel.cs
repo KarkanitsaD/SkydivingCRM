@@ -8,6 +8,6 @@ namespace SkydivingCRM.UserService.Api.Models.RequestModels.User
 
         public Guid GroupId { get; set; }
 
-        public DateTimeOffset FormationDate { get; set; }
+        public DateTime FormationDate { get; set; }
     }
 }
